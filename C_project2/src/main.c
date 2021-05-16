@@ -16,7 +16,8 @@ void tempo_250ms();
 uint32_t button_poll();
 void button_init();
 void led_pa5(uint32_t status);
-void button_irqPC13_init ()
+void button_irqPC13_init ();
+void SysTick_init(uint32_t freq);
 
 static volatile uint32_t count =0;
 static volatile uint32_t mode =1;
