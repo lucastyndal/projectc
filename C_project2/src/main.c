@@ -19,7 +19,7 @@ void led_pa5(uint32_t status);
 void button_irqPC13_init ()
 
 static volatile uint32_t count =0;
-static volatile uint32_t mode =0;
+static volatile uint32_t mode =1;
 
 
 
@@ -90,13 +90,6 @@ void __attribute__((interrupt)) EXTI15_10_Handler() {
 	mode=1;
 	double timer=count*0.001;
 	printf("%lf",timer);
-	if(timer<1){
-		led_pa5(1);
-		tempo_250ms();//allume led pour 1 sec
-		tempo_250ms();
-		tempo_250ms();
-		led_pa5(0);
-	}
 
 }
 
