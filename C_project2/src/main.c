@@ -88,7 +88,7 @@ void __attribute__((interrupt)) EXTI15_10_Handler() {
 //interuption bouton
 	EXTI.PR |= (1<<13); 
 	mode=1;
-	float timer=count*0.001;
+	double timer=count*0.001;
 	printf("%lf",timer);
 	if(timer<1){
 		led_pa5(1);
