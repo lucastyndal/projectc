@@ -21,32 +21,8 @@ void button_irqPC13_init ()
 static volatile uint32_t count =0;
 static volatile uint32_t mode =0;
 
-void exo1_2(){
-	int8_t index = 0;	
-	while(1){
-		led_pa5(index % 2);
-		tempo_250ms();		
-		tempo_250ms();
-		index++;	
-	}
-}
 
 
-
-void exo2(){
-	char c = 0x0A;
-	for(int8_t i = 0; i <  50; i++){
-		printf("%c", c);
-	}
-	
-
-	//scanf("%c", &c);
-	//printf("%c", c);
-
-	char s[2];
-	scanf("%s", s);
-	puts(s);
-}
 
 int main() {
 	enable_GPIOA();
@@ -113,7 +89,7 @@ void __attribute__((interrupt)) EXTI15_10_Handler() {
 	EXTI.PR |= (1<<13); 
 	mode=1;
 	float timer=count*0.001;
-	printf("%f",timer);
+	printf("%lf",timer);
 	if(timer<1){
 		led_pa5(1);
 		tempo_250ms();//allume led pour 1 sec
